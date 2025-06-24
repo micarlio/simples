@@ -47,6 +47,10 @@ venv.bak/
 
 # Dataset files (podem ser grandes)
 *.csv
+# Exceções para os arquivos necessários
+!dataset/brutos/*.csv
+!dataset/reduzidos/*.csv
+!dataset/processados/*.csv
 !requirements.txt
 
 # Logs

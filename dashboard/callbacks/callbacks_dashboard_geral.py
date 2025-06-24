@@ -179,6 +179,9 @@ def registrar_callbacks_dashboard_geral(aplicativo, dados):
 
         if dados_nivel_loja.empty:
             return criar_figura_vazia("Sem dados suficientes para este gráfico."), "Não há lojas com dados de concorrência nos filtros selecionados."
+        
+        # Converter a coluna para tipo categoria antes de remover categorias não utilizadas
+        dados_nivel_loja['StoreType'] = dados_nivel_loja['StoreType'].astype('category')
         dados_nivel_loja['StoreType'] = dados_nivel_loja['StoreType'].cat.remove_unused_categories()
         fig = px.scatter(
             dados_nivel_loja,
